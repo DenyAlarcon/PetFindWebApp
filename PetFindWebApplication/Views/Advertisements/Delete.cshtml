@@ -1,0 +1,127 @@
+﻿@model PetFindWebApplication.Models.Advertisement
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Удаление</h1>
+
+<h3>Вы действительно хотите удалить данное объявление?</h3>
+<br />
+<br />
+<h1>@Html.DisplayFor(model => model.AdvertisementName)</h1>
+<hr />
+<div class="container p-0">
+    <div class="row font-weight-bold">
+        <div class="col-sm">
+            @Html.DisplayNameFor(model => model.AdvertisementTypeId)
+        </div>
+        <div class="col-sm">
+            @Html.DisplayNameFor(model => model.CityId)
+        </div>
+        <div class="col-sm">
+            @Html.DisplayNameFor(model => model.DateFoundLost)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            @Html.DisplayFor(model => model.AdvertisementType.Type)
+        </div>
+        <div class="col-sm">
+            @Html.DisplayFor(model => model.City.CityName)
+        </div>
+        <div class="col-sm">
+            @Html.DisplayFor(model => model.DateFoundLost)
+        </div>
+    </div>
+</div>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.AnimalTypeId)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.AnimalType.Type)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.AnimalBreed)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.AnimalBreed)
+        </dd>
+        @if (Model.AdvertisementTypeId == 2)
+        {
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.AnimalName)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.AnimalName)
+            </dd>
+        }
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.AnimalColor)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.AnimalColor)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.AnimalSex)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.AnimalSex)
+        </dd>
+    </dl>
+    <hr />
+    <dl class="row">
+        @if (Model.AdvertisementTypeId == 1)
+        {
+            <dt class="col-sm-4">Место находки</dt>
+        }
+        else
+        {
+            <dt class="col-sm-4">Место пропажи</dt>
+        }
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PlaceFoundLost)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+    </dl>
+</div>
+<h1>Связаться</h1>
+<hr />
+<div class="container p-0">
+    <div class="row font-weight-bold">
+        <div class="col-sm">
+            @Html.DisplayNameFor(model => model.PersonToCall)
+        </div>
+        <div class="col-sm">
+            @Html.DisplayNameFor(model => model.PersonTelNumber)
+        </div>
+        <div class="col-sm">
+            @Html.DisplayNameFor(model => model.PersonEmail)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            @Html.DisplayFor(model => model.PersonToCall)
+        </div>
+        <div class="col-sm">
+            @Html.DisplayFor(model => model.PersonTelNumber)
+        </div>
+        <div class="col-sm">
+            @Html.DisplayFor(model => model.PersonEmail)
+        </div>
+    </div>
+</div>
+<hr />
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Удалить" class="btn btn-danger" />
+</form>

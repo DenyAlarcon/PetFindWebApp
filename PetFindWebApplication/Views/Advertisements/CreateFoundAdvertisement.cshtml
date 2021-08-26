@@ -1,0 +1,100 @@
+﻿@model PetFindWebApplication.Models.Advertisement
+
+@{
+    ViewData["Title"] = "CreateFoundAdvertisement";
+}
+
+    <form asp-action="CreateFoundAdvertisement" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="AdvertisementName"></label>
+            <input type="text" class="form-control" asp-for="AdvertisementName" placeholder="Название объявления" name="advertisementName">
+            <span asp-validation-for="AdvertisementName" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <h1>Нашел</h1>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="AnimalTypeId"></label>
+                @Html.DropDownListFor(model => model.AnimalTypeId, (SelectList)ViewBag.animalTypesList, htmlAttributes: new { @class = "form-control", @name = "animalTypeId" })
+                <span asp-validation-for="AnimalTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label class="d-block" asp-for="AnimalSex">Пол</label>
+                <div class="btn-group btn-group-toggle" id="sex" data-toggle="buttons">
+                    <label class="btn btn-danger">
+                        <input type="radio" asp-for="AnimalSex" checked value="Девочка" name="animalSex"> Девочка
+                    </label>
+                    <label class="btn btn-danger">
+                        <input type="radio" asp-for="AnimalSex" value="Мальчик" name="animalSex"> Мальчик
+                    </label>
+                    <label class="btn btn-danger active">
+                        <input type="radio" asp-for="AnimalSex" value="Не знаю" name="animalSex"> Не знаю
+                    </label>
+                    <span asp-validation-for="AnimalSex" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AnimalBreed"></label>
+            <input type="text" class="form-control" asp-for="AnimalBreed" placeholder="Порода" name="animalBreed">
+            <span asp-validation-for="AnimalBreed" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="AnimalColor"></label>
+            <input type="text" class="form-control" asp-for="AnimalColor" placeholder="Окрас" name="animalColor">
+            <span asp-validation-for="AnimalColor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CityId"></label>
+            @Html.DropDownListFor(model => model.CityId, (SelectList)ViewBag.citiesList, htmlAttributes: new { @class = "form-control", @name = "cityId" })
+            <span asp-validation-for="CityId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PlaceFoundLost">Место находки</label>
+            <input type="text" class="form-control" asp-for="PlaceFoundLost" placeholder="Место находки" name="placeFoundLost">
+            <span asp-validation-for="PlaceFoundLost" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DateFoundLost">Дата находки</label>
+            <input type="date" class="form-control" asp-for="DateFoundLost" placeholder="Дата находки" name="dateFoundLost">
+            <span asp-validation-for="DateFoundLost" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Comment"></label>
+            <textarea class="form-control" asp-for="Comment" rows="3" name="comment"></textarea>
+            <span asp-validation-for="Comment" class="text-danger"></span>
+        </div>
+
+        @*<div class="custom-file">
+            <label class="custom-file-label" asp-for="AnimalPhoto">Выберите фото</label>
+            <input type="file" class="custom-file-input" asp-for="AnimalPhoto" name="animalPhoto" lang="ru">
+            <span asp-validation-for="AnimalPhoto" class="text-danger"></span>
+        </div>*@
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <h1>Связаться</h1>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="PersonToCall"></label>
+                <input type="text" class="form-control" asp-for="PersonToCall" placeholder="Имя" name="personToCall">
+                <span asp-validation-for="PersonToCall" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="PersonTelNumber"></label>
+                <input type="tel" class="form-control" value="821321" asp-for="PersonTelNumber" placeholder="Телефон" name="personTelNumber">
+                <span asp-validation-for="PersonTelNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="PersonEmail"></label>
+                <input type="email" class="form-control" asp-for="PersonEmail" placeholder="Почта" name="personEmail">
+                <span asp-validation-for="PersonEmail" class="text-danger"></span>
+            </div>
+        </div>
+        <hr />
+        <button type="submit" class="btn btn-danger">Разместить объявление</button>
+    </form>

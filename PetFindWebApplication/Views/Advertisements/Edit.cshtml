@@ -1,0 +1,146 @@
+﻿@model PetFindWebApplication.Models.Advertisement
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Редактирование</h1>
+
+<hr />
+<form asp-action="Edit" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" name="id" />
+    <div class="form-group">
+        <label asp-for="AdvertisementName"></label>
+        <input asp-for="AdvertisementName" class="form-control" name="advertisementName" />
+        <span asp-validation-for="AdvertisementName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DateFoundLost"></label>
+        <input asp-for="DateFoundLost" class="form-control" name="dateFoundLost" />
+        <span asp-validation-for="DateFoundLost" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AnimalBreed"></label>
+        <input asp-for="AnimalBreed" class="form-control" name="animalBreed" />
+        <span asp-validation-for="AnimalBreed" class="text-danger"></span>
+    </div>
+    @if (Model.AdvertisementTypeId == 2)
+    {
+        <div class="form-group">
+            <label asp-for="AnimalName"></label>
+            <input asp-for="AnimalName" class="form-control" name="animalName" />
+            <span asp-validation-for="AnimalName" class="text-danger"></span>
+        </div>
+    }
+    <div class="form-group">
+        <label asp-for="AnimalColor"></label>
+        <input asp-for="AnimalColor" class="form-control" name="animalColor" />
+        <span asp-validation-for="AnimalColor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AnimalSex"></label>
+        <input asp-for="AnimalSex" class="form-control" name="animalSex" />
+        <span asp-validation-for="AnimalSex" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        @if (Model.AdvertisementTypeId == 1)
+        {
+            <label>Место находки</label>
+        }
+        else
+        {
+            <label>Место пропажи</label>
+        }
+        <input asp-for="PlaceFoundLost" class="form-control" name="placeFoundLost" />
+        <span asp-validation-for="PlaceFoundLost" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Comment"></label>
+        <textarea class="form-control" asp-for="Comment" rows="3" name="comment"></textarea>
+        <span asp-validation-for="Comment" class="text-danger"></span>
+    </div>
+
+    @*<div class="custom-file">
+            <label class="custom-file-label" asp-for="AnimalPhotoFile">Фото питомца</label>
+            <input type="file" class="custom-file-input" asp-for="AnimalPhoto" name="animalPhotoFile">
+            <span asp-validation-for="AnimalPhotoFile" class="text-danger"></span>
+        </div>*@
+
+    <div class="form-group">
+        <label asp-for="AnimalPhotoFile" class="control-label">Фото питомца</label>
+        <br>
+        <img src="@("~/Image/"+Model.AnimalPhotoName)" asp-append-version="true" width="350" height="250" />
+        <br><br>
+        <input type="hidden" class="form-control" asp-for="AnimalPhotoName" name="animalPhotoName">
+        <input asp-for="AnimalPhotoFile" accept="image/*" name="animalPhotoFile">
+        <span asp-validation-for="AnimalPhotoFile" class="text-danger"></span>
+    </div>
+
+    @*<label asp-for="AnimalPhotoFile" class="control-label">Фото питомца</label>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <img src="@("~/Image/"+Model.AnimalPhotoName)" asp-append-version="true" width="350" height="250">
+            <input class="form-control" asp-for="AnimalPhotoName" name="animalPhotoName">
+            <span asp-validation-for="AnimalPhotoName" class="text-danger"></span>
+            <br>
+
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="AnimalPhotoName" class="control-label">Фото питомца</label>
+            <input asp-for="AnimalPhotoFile" accept="image/*" name="animalPhotoFile">
+            <span asp-validation-for="AnimalPhotoFile" class="text-danger"></span>
+        </div>
+    </div>*@
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <h1>Связаться</h1>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label asp-for="PersonToCall"></label>
+            <input type="text" class="form-control" asp-for="PersonToCall" placeholder="Имя" name="personToCall">
+            <span asp-validation-for="PersonToCall" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="PersonTelNumber"></label>
+            <input type="tel" class="form-control" value="821321" asp-for="PersonTelNumber" placeholder="Телефон" name="personTelNumber">
+            <span asp-validation-for="PersonTelNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="PersonEmail"></label>
+            <input type="email" class="form-control" asp-for="PersonEmail" placeholder="Почта" name="personEmail">
+            <span asp-validation-for="PersonEmail" class="text-danger"></span>
+        </div>
+    </div>
+    @*<div class="form-group">
+            <label asp-for="UserId"></label>
+            <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+            <span asp-validation-for="UserId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="AnimalTypeId"></label>
+            <select asp-for="AnimalTypeId" class="form-control" asp-items="ViewBag.AnimalTypeId"></select>
+            <span asp-validation-for="AnimalTypeId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="AdvertisementTypeId"></label>
+            <select asp-for="AdvertisementTypeId" class="form-control" asp-items="ViewBag.AdvertisementTypeId"></select>
+            <span asp-validation-for="AdvertisementTypeId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CityId"></label>
+            <input asp-for="CityId" class="form-control" />
+            <span asp-validation-for="CityId" class="text-danger"></span>
+        </div>*@
+    <input type="hidden" asp-for="UserId" name="userId" />
+    <input type="hidden" asp-for="AnimalTypeId" name="animalTypeId" />
+    <input type="hidden" asp-for="AdvertisementTypeId" name="advertisementTypeId" />
+    <input type="hidden" asp-for="CityId" name="cityId" />
+    <hr />
+    <div class="form-group">
+        <input type="submit" value="Сохранить" class="btn btn-danger" />
+    </div>
+</form>

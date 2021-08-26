@@ -1,0 +1,81 @@
+﻿@model IEnumerable<PetFindWebApplication.Models.Advertisement>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Объявления</h1>
+
+<div class="container justify-content-center">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="card bg-light text-dark mx-2 mb-2" style="width: 16rem;" my-2">
+                <a asp-action="Details" asp-route-id="@item.Id">
+                    @if (item.AnimalPhotoName != "" && item.AnimalPhotoName != null)
+                    {
+                        <img src="@("~/Image/"+item.AnimalPhotoName)" class="card-img-top" asp-append-version="true">
+                    }
+                    else
+                    {
+                        <img src="~/grey_rectangle.png" class="card-img-top" alt="...">
+                    }
+                </a>
+                <div class="card-body">
+                    <a asp-action="Details" asp-route-id="@item.Id" class="mb-2" style="text-decoration:none">
+                        <h5 class="card-text">@Html.DisplayFor(modelItem => item.AdvertisementName)</h5>
+                    </a>
+                    <p class="card-text">
+                        @Html.DisplayFor(modelItem => item.City.CityName)
+                    <p>
+                    <p class="card-text text-muted">
+                        @Html.DisplayFor(modelItem => item.DateFoundLost)
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayAnimalNameFor(model => model.DateFoundLost)
+                </th>
+                <th>
+                    @Html.DisplayAnimalNameFor(model => model.PlaceFoundLost)
+                </th>
+                <th>
+                    @Html.DisplayAnimalNameFor(model => model.User.Id)
+                </th>
+                <th>
+                    @Html.DisplayAnimalNameFor(model => model.AnimalType.Id)
+                </th>
+                <th>
+                    @Html.DisplayAnimalNameFor(model => model.AdvertisementType.Id)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateFoundLost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlaceFoundLost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnimalType.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdvertisementType.Type)
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@

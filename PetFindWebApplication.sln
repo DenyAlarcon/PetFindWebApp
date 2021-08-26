@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetFindWebApplication", "PetFindWebApplication\PetFindWebApplication.csproj", "{4FA46FC4-70A7-4280-B9D0-CB0997400C49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetFindWebApplocationNUnitTests", "PetFindWebApplocationNUnitTests\PetFindWebApplocationNUnitTests.csproj", "{AC32F5B9-1713-4DE4-ADA1-180AB35D1744}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FA46FC4-70A7-4280-B9D0-CB0997400C49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FA46FC4-70A7-4280-B9D0-CB0997400C49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FA46FC4-70A7-4280-B9D0-CB0997400C49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FA46FC4-70A7-4280-B9D0-CB0997400C49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC32F5B9-1713-4DE4-ADA1-180AB35D1744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC32F5B9-1713-4DE4-ADA1-180AB35D1744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC32F5B9-1713-4DE4-ADA1-180AB35D1744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC32F5B9-1713-4DE4-ADA1-180AB35D1744}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {90FFC643-7CE3-400C-A723-BE7C7A6F2894}
+	EndGlobalSection
+EndGlobal

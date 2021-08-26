@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+    <style>
+        body {
+            background-image: url('../../SadDogMirrored.jpg');
+            background-color: black;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: 100% 100%;
+        }
+        h1 {
+            font-size: 3.9vw;
+        }  
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="text-white">Портал помощи поиска пропавших домашних животных</h1>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="row justify-content-around">
+        <div class="col-4 text-center">
+            <a href="Advertisements/CreateLostAdvertisement" class="btn btn-danger btn-lg" role="button">Я потерял</a>
+        </div>
+        <div class="col-4 text-center">
+            <a href="Advertisements/CreateFoundAdvertisement" class="btn btn-danger btn-lg" role="button">Я нашел</a>
+        </div>
+    </div>
+</body>
